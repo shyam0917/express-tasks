@@ -9,8 +9,27 @@ router.get('/', function (req, res, next) {
 
 //  Register the User
 router.post('/register', register.onRegister);
-router.post('/login', (req, res, next) => {
 
+// Login the User
+router.post('/login', (req, res, next) => {
+  try {
+    let userData = req.body;
+    console.log("tt", req.body);
+    if (!userData) {
+      throw new Error("Credentials not valid");
+    }
+    register.authenticate(userData).then(result => {
+      return res.status(200).send(result);
+    }, err => {
+      return res.status(400).send(err);
+    })
+
+  } catch (err) {
+    return res.status(500).send({
+      success: false,
+      msg: err
+    });
+  }
 })
 
 module.exports = router;

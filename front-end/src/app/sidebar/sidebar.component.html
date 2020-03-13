@@ -11,7 +11,8 @@
         <a href="#"><span class="fa fa-home mr-3"></span> Homepage</a>
       </li>
       <li>
-        <a href="#" [routerLink]="['/home']"><span class="fa fa-user mr-3"></span> Dashboard</a>
+        <a *ngIf="'admin' == getUserRole()" href="#" [routerLink]="['/home']"><span class="fa fa-user mr-3"></span>
+          Dashboard</a>
       </li>
       <li>
         <a href="#"><span class="fa fa-sticky-note mr-3"></span> Friends</a>

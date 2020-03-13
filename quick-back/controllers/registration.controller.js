@@ -1,5 +1,8 @@
 const User = require('../models/registration.entity');
 const nodemailer = require("nodemailer");
+const userModel = require('../models/registration.entity');
+const config = require('../config');
+const jwt = require('jsonwebtoken');
 
 module.exports = {
 
@@ -48,5 +51,63 @@ module.exports = {
         })
       })
     }
+  },
+  authenticate: (userData) => {
+    return new Promise((resolve, reject) => {
+      userModel.findOne({
+        "email": userData.email
+      }, (err, data) => {
+        if (err) {
+          reject({
+            success: false,
+            msg: err
+          });
+        } else if (!data) {
+          reject({
+            success: false,
+            msg: "Invalid Credentials"
+          });
+        } else {
+          data.comparePassword(userData.password, (err, isMatch) => {
+            if (err) {
+              reject({
+                success: false,
+                msg: err
+              })
+            } else {
+              if (!isMatch) {
+                reject({
+                  success: false,
+                  msg: "Invalid Credentials"
+                });
+              }
+              let userDetails = {
+                username: data.name,
+                email: data.email,
+                userId: data._id,
+                role: data.role,
+              }
+              let userToken;
+              userToken = jwt.sign(userDetails, config.secret, {
+                expiresIn: 80 * 80
+              })
+              let userInfo = {
+                authToken: userToken,
+                email: data.email,
+                name: data.name,
+                _id: data._id,
+                role: data.role,
+              }
+              resolve({
+                success: true,
+                msg: "User LoggedIn Successfully",
+                data: userInfo
+              });
+            }
+          })
+        }
+
+      })
+    })
   }
 }
