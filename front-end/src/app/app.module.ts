@@ -5,7 +5,8 @@ import {
   HttpClientModule,
   HttpClient,
 } from "@angular/common/http";
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,13 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyAUgFkbk-ng2z9plJDyfa02ej0DZGsUnag",
+      authDomain: "hotelapp-f08fa.firebaseapp.com",
+      storageBucket: "hotelapp-f08fa.appspot.com",
+      projectId: "hotelapp-f08fa",
+    }),
+    AngularFireStorageModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,

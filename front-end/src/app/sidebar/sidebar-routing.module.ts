@@ -6,7 +6,7 @@ import { HomeComponent } from '../shared/home/home.component';
 const routes: Routes = [
 
   {
-    path: "",
+    path: "sidebar",
     component: SidebarComponent,
     children: [{
       path: '',

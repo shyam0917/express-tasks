@@ -2,24 +2,29 @@
   <div class="jumbotron">
     <h2>Add Hotel</h2>
     <hr>
-    <div class="col-12">
-      <div class="row">
-        <div class="col-3">
-          <input class="form-control" type="text" placeholder="Enter Name">
-        </div>
-        <div class="col-3">
-          <input class="form-control" type="text" placeholder="Address">
-        </div>
-        <div class="col-3">
-          <input class="form-control" type="text" placeholder="City">
-        </div>
-        <div class="col-3">
-          <input class="form-control" type="number" placeholder="Available Rooms">
+    <form [formGroup]="addHotelForm">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-3">
+            <input class="form-control" type="text" placeholder="Enter Name">
+          </div>
+          <div class="col-3">
+            <input class="form-control" type="text" placeholder="Address">
+          </div>
+          <div class="col-3">
+            <input class="form-control" type="text" placeholder="City">
+          </div>
+          <div class="col-3">
+            <input class="form-control" type="number" placeholder="Available Rooms">
+          </div>
         </div>
       </div>
-    </div>
-    <div class="m-2 ml-3">
-      <button class="btn btn-primary">Add</button>
-    </div>
+      <div class="col-6 mt-3">
+        <input type="file" class="form-control" (change)="upload($event)" accept=".png,.jpg" />
+      </div>
+      <div class="m-2 ml-3">
+        <button class="btn btn-primary">Add</button>
+      </div>
+    </form>
   </div>
 </div>
