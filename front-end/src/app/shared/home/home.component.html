@@ -6,16 +6,19 @@
       <div class="col-12">
         <div class="row">
           <div class="col-3">
-            <input class="form-control" type="text" placeholder="Enter Name">
+            <input class="form-control" formControlName="name" type="text" placeholder="Enter Name">
+            <div *ngIf="f.name.errors" class="text-danger">
+              <div *ngIf="f.name.errors.required && f.name.touched">Name is required</div>
+            </div>
           </div>
           <div class="col-3">
-            <input class="form-control" type="text" placeholder="Address">
+            <input class="form-control" formControlName="address" type="text" placeholder="Address">
           </div>
           <div class="col-3">
-            <input class="form-control" type="text" placeholder="City">
+            <input class="form-control" formControlName="city" type="text" placeholder="City">
           </div>
           <div class="col-3">
-            <input class="form-control" type="number" placeholder="Available Rooms">
+            <input class="form-control" formControlName="noOfRooms" type="number" placeholder="Available Rooms">
           </div>
         </div>
       </div>
@@ -23,8 +26,32 @@
         <input type="file" class="form-control" (change)="upload($event)" accept=".png,.jpg" />
       </div>
       <div class="m-2 ml-3">
-        <button class="btn btn-primary">Add</button>
+        <button class="btn btn-primary" (click)="submitt()">Add</button>
       </div>
     </form>
   </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Hotel</th>
+        <th scope="col">Address</th>
+        <th scope="col">City</th>
+        <th scope="col">noOfRooms</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hotel of Hotels; let i=index">
+        <th scope="row">{{ i+1 }}</th>
+        <td>
+          <!-- <img [src]="hotel.image_Url" class="mr-2" style="width: 20px"> -->
+          {{ hotel.name }}
+        </td>
+        <td>{{ hotel.address}}</td>
+        <td>{{ hotel.city }}</td>
+        <td>{{hotel.noOfRooms}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

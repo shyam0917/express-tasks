@@ -2,19 +2,38 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { AdminService } from '../../services/admin.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [AdminService]
 })
+
 export class HomeComponent implements OnInit {
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
   imageURL: string = "";
-  constructor(private afStorage: AngularFireStorage) { }
+  addHotelForm: FormGroup;
+  Hotels: any = [];
+
+  constructor(private afStorage: AngularFireStorage,
+    private formBuilder: FormBuilder,
+    private adminService: AdminService) { }
 
   ngOnInit() {
+    this.addHotelForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      address: [''],
+      city: [''],
+      noOfRooms: ['']
+    })
+
+    this.getHotels();
   }
+
+  get f() { return this.addHotelForm.controls; }
 
   upload(event) {
     let img = event.target.files[0];
@@ -24,11 +43,35 @@ export class HomeComponent implements OnInit {
     this.task.then((uploadSnapshot) => {
       uploadSnapshot.ref.getDownloadURL().then((downloadURL) => {
         this.imageURL = downloadURL;
+        console.log(this.imageURL);
       }).catch(err => {
-
+        console.log("err", err);
       })
     })
   }
+
+  submitt() {
+    this.addHotelForm.value.image_Url = this.imageURL;
+    console.log("dfg", this.addHotelForm.value);
+    this.adminService.addHotel(this.addHotelForm.value).subscribe(res => {
+      console.log("res", res);
+    }, err => {
+      console.log("err", err);
+    })
+
+  }
+
+  getHotels() {
+    this.adminService.getHotels().subscribe(res => {
+      console.log("res", res);
+      if (res['success'] && res['data'].length) {
+        this.Hotels = res['data'];
+      }
+    }, err => {
+      console.log("err", err);
+    })
+  }
+
   //https://firebasestorage.googleapis.com/v0/b/hotelapp-f08fa.appspot.com/o/images%2FScreenshot%20from%202019-11-21%2018-54-56.png?alt=media&token=89768f50-33a3-4a8f-9f7d-a58f865a8347
 
 

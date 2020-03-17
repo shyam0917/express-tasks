@@ -4,16 +4,11 @@ import { SidebarComponent } from './sidebar.component';
 import { HomeComponent } from '../shared/home/home.component';
 
 const routes: Routes = [
-
   {
-    path: "sidebar",
+    path: "",
     component: SidebarComponent,
     children: [{
-      path: '',
-      component: HomeComponent
-    }, {
-      path: 'home',
-      component: HomeComponent
+      path: "home", component: HomeComponent
     }]
   }
 ];

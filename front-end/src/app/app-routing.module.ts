@@ -3,17 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
 
-const routes: Routes = [{
-  path: "",
-  component: LoginComponent
-},
-{
-  path: "sidebar",
-  loadChildren: "./sidebar/sidebar.module#SidebarModule"
-}, {
-  path: "login",
-  component: LoginComponent
-}]
+const routes: Routes = [
+  //   path: "",
+  //   component: LoginComponent
+  // },
+  {
+    path: "",
+    loadChildren: "./sidebar/sidebar.module#SidebarModule"
+  }, {
+    path: "login",
+    component: LoginComponent
+  }]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

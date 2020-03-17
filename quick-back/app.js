@@ -6,9 +6,11 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 const dotenv = require('dotenv');
 var config = require('./config');
+var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var adminRouter = require('./routes/admin');
 
 var app = express();
 
@@ -21,12 +23,13 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: false
 }));
-
+app.use(cors());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 dotenv.config();
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
+app.use('/admin', adminRouter);
 
 // Connecting to the database
 mongoose.connect(config.url, {
