@@ -5,13 +5,16 @@ import { SwitchView } from '@angular/common/src/directives/ng_switch';
   providedIn: 'root'
 })
 export class RoleService {
-  public role = JSON.parse(localStorage.getItem('userDetails'))['role'];
+  public userData = JSON.parse(localStorage.getItem('userDetails'));
 
   constructor() { }
 
   // function to check role of user
   getRole() {
-    return this.role;
+    if (this.userData) {
+      return this.userData['role'];
+    }
+    return null;
   }
 
 }

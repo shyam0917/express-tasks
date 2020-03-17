@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
 
         localStorage.setItem('authToken', token);
         localStorage.setItem('userDetails', JSON.stringify(userDetails));
-        this.router.navigate(['./sidebar']);
+        this.router.navigate(['']);
       }
     }, err => {
       Swal.fire('Oops...', err.error.msg, 'error')
