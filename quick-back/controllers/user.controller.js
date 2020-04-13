@@ -1,4 +1,5 @@
 const User = require('../models/registration.entity');
+const Booking = require('../models/booking.entity');
 const nodemailer = require("nodemailer");
 const userModel = require('../models/registration.entity');
 const config = require('../config');
@@ -109,5 +110,15 @@ module.exports = {
 
       })
     })
+  },
+  afterBooking: (bookingDetails,hotelId)=>{
+
+    
+const booking = new Booking({
+  email: bookingDetails.email,
+  hotel : bookingDetails.hotel,
+  roomIds: bookingDetails.roomIds,
+  role: bookingDetails.role
+})
   }
 }

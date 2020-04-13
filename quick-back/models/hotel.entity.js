@@ -5,7 +5,16 @@ const HotelSchema = new Schema({
   name: String,
   address: String,
   city: String,
-  noOfRooms: Number,
+  rating: Number,
+  price: Number,
+  noOfRooms :[
+    {
+      roomNo : Number,
+      facilities: [],
+      noOfPersons: Number,
+      isBooked: Boolean
+    }
+  ],
   image_Url: String
 })
 
