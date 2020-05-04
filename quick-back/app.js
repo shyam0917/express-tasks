@@ -11,6 +11,7 @@ var cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var adminRouter = require('./routes/admin');
+var paymentRouter = require('./routes/payment');
 
 var app = express();
 
@@ -30,6 +31,7 @@ dotenv.config();
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/admin', adminRouter);
+app.use('/payment',paymentRouter);
 
 // Connecting to the database
 mongoose.connect(config.url, {

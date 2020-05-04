@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="ROLE=='admin'">
   <div class="jumbotron">
     <h2>Add Hotel</h2>
     <hr>
@@ -55,3 +55,8 @@
     </tbody>
   </table>
 </div>
+
+<div *ngIf="ROLE=='user'">
+  <app-hotels></app-hotels>
+</div>
+

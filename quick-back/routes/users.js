@@ -32,12 +32,14 @@ router.post('/login', (req, res, next) => {
   }
 })
 
+// Book hotel
 router.post('/bookHotel/:hotelId',(req,res)=>{
   try{
 let hotel_Id = req.params.hotelId;
 let userDetails = req.body;
-userController.afterBooking(userDetails,hotel_Id).then(res=>{
-  return res.status(200).send(res);
+console.log("Ttt",userDetails);
+userController.afterBooking(userDetails,hotel_Id).then(resp=>{
+  return res.status(200).send(resp);
 },err=>{
   return res.status(400).send(err);
 })
@@ -47,6 +49,55 @@ userController.afterBooking(userDetails,hotel_Id).then(res=>{
       msg: err
     })
   }
+})
+
+// get Hotels booked by user
+router.get('/getHotels/:userEmail',(req,res)=>{
+  try{
+let userEmail = req.params.userEmail;
+userController.getMyHotels(userEmail).then(resp=>{
+  return res.status(200).send(resp);
+},err=>{
+  return res.status(400).send(err);
+})
+  }catch(error){
+    return res.status(500).send({
+      success: false,
+      msg: error
+    })
+  }
+})
+
+// get Hotels based on query Facilities
+router.get('/getHotelsbyFilter',(req,res)=>{
+  try{
+userController.getFilteredHotels(req).then(resp=>{
+  return res.status(200).send(resp);
+},err=>{
+  return res.status(400).send(err);
+})
+  }catch(error){
+    return res.status(500).send({
+      success: false,
+      msg: error
+    })
+  }
+})
+
+// get All Hotels with Empty Rooms
+router.get('/allHotels',(req,res)=>{
+  try{
+    userController.getAllHotels(req).then(resp=>{
+      return res.status(200).send(resp);
+    },err=>{
+      return res.status(400).send(err);
+    })
+      }catch(error){
+        return res.status(500).send({
+          success: false,
+          msg: error
+        })
+      }
 })
 
 module.exports = router;

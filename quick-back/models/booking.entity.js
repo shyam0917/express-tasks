@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const BookingSchema = new Schema({
-  email: {
+  userId: {
     type: String,
     required: true
   },
@@ -10,11 +10,8 @@ const BookingSchema = new Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref:"Hotel"
   }],
-  roomIds: [],
-  role: {
-    type: String,
-    required: true
-  },
+  roomNo: Number,
+  categoryType: String
 },{
     timestamps: true
 });

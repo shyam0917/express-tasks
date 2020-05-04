@@ -1,0 +1,171 @@
+
+<nav aria-label="breadcrumb mt-2">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><button type="button" class="btn btn-primary"  (click)="getUserHotels()">MyBookings</button></li>
+      <li class="breadcrumb-item"><button type="button" class="btn btn-primary" (click)="getAllHotels()">All Hotels</button></li>
+    </ol>
+  </nav>
+
+
+<div class="mt-5">
+    <div class="row" *ngIf="showBookings">
+    <div class="col-4"  *ngFor="let item of hotelData">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://www.princehotels.com/wp-content/uploads/2019/04/aboutslider2-1.jpg" alt="Card image cap">
+        <!-- <div class="card-body">
+          <h5 class="card-title">{{item.hotel?.name}}</h5>
+          <p class="card-text mb-1">No of Persons - {{item.hotel?.noOfRooms?.noOfPersons}}</p>
+          <p class="card-text mb-1">Facilities - {{item.hotel?.noOfRooms?.facilities.join(', ')}}</p>
+          <p class="card-text mb-1">RoomNo - {{item.hotel?.noOfRooms?.roomNo}}</p>
+          <p class="card-text mb-1">Address - {{item.hotel?.address}},  {{item.hotel?.city}}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div> -->
+      </div>
+    </div>
+    </div>
+
+    <div class="container-fluid"  *ngIf="!showBookings">
+    <div class="row">
+      <aside class="col-md-3">
+        <p>Filter 1</p>
+        
+        
+        <div class="card">
+          <article class="card-group-item">
+            <header class="card-header">
+              <h6 class="title">Brands </h6>
+            </header>
+            <div class="filter-content">
+              <div class="card-body">
+              <!-- <form> -->
+                <label class="form-check">
+                  <input class="form-check-input" type="checkbox" value="">
+                  <span class="form-check-label">
+                    Mersedes Benz
+                  </span>
+                </label> <!-- form-check.// -->
+                <label class="form-check">
+                  <input class="form-check-input" type="checkbox" value="">
+                  <span class="form-check-label">
+                    Nissan Altima
+                  </span>
+                </label>  <!-- form-check.// -->
+                <label class="form-check">
+                  <input class="form-check-input" type="checkbox" value="">
+                  <span class="form-check-label">
+                    Another Brand
+                  </span>
+                </label>
+        
+              </div> <!-- card-body.// -->
+            </div>
+          </article> <!-- card-group-item.// -->
+          
+          <article class="card-group-item">
+            <header class="card-header">
+              <h6 class="title">Choose type </h6>
+            </header>
+            <div class="filter-content">
+              <div class="card-body">
+              <label class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                <span class="form-check-label">
+                  First hand items
+                </span>
+              </label>
+              <label class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                <span class="form-check-label">
+                  Brand new items
+                </span>
+              </label>
+              <label class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                <span class="form-check-label">
+                  Some other option
+                </span>
+              </label>
+              </div> <!-- card-body.// -->
+            </div>
+          </article> <!-- card-group-item.// -->
+        </div> <!-- card.// -->
+        </aside> <!-- col.// -->
+
+
+        <div class="col-9">
+          <div class="jumbotron p-1 mr-5"  *ngFor="let item of hotelData">
+            <div class="row">
+        <div class="col-4">
+            <img class="card-img" src="https://www.princehotels.com/wp-content/uploads/2019/04/aboutslider2-1.jpg" alt="Card image cap">
+          </div>
+          <div class="col-8">
+            <div class="card-body pb-0"> 
+              <h5 class="card-title">{{item?.name}}</h5>
+              <p class="card-text mb-1">{{item?.hotel?.address}}</p>
+              <p class="card-text mb-1">Category Type - {{item.noOfRooms[0].categoryType}}</p>
+              <p class="card-text mb-1">Facilities - {{item.noOfRooms[0]?.facilities.join(', ')}}</p>
+              <p class="card-text mb-1 d-inline">Discount - {{item.noOfRooms[0]?.discount}}%</p>
+              <p class="card-text mb-1 d-inline">Price - {{item.noOfRooms[0]?.price}}</p>   <a href="#" class="btn btn-primary float-right">Choose Room</a>
+              <p class="card-text mb-1">Rating - {{item?.rating}}/5</p>
+            </div>
+          </div>
+            </div>
+          </div>
+        <!-- <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://www.princehotels.com/wp-content/uploads/2019/04/aboutslider2-1.jpg" alt="Card image cap">
+            <div class="card-body"> -->
+              <!-- <h5 class="card-title">{{item?.name}}</h5>
+              <p class="card-text mb-1">No of Rooms - {{item.?noOfRooms?.length}}</p>
+              <p class="card-text mb-1">Facilities - {{item.?noOfRooms?.length}}</p>
+              <p class="card-text mb-1">RoomNo - {{item.hotel?.noOfRooms?.roomNo}}</p>
+              <p class="card-text mb-1">Address - {{item.hotel?.address}},  {{item.hotel?.city}}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            <!-- </div>
+          </div> -->
+        </div>
+        </div>
+</div>
+</div>
+
+
+<!-- <button (click)="sendPayment()" class="btn btn-primary">Pay Baby</button> -->
+
+
+
+
+<!-- "_id" : ObjectId("5e8b11f945023b1f7010556c"),
+"name" : "Hotel Samrat",
+"address" : "East Rohini",
+"city" : "Gurgaon",
+"rating" : 4.5,
+"description" : "just 1.4 km from Indira Gandhi Airport, New Delhi",
+"checkinDetails" : ["10AM","12PM"],
+"noOfRooms" : [ 
+    {
+        "facilities" : [ 
+            "Fully Air Conditioner", 
+            "Free Breakfast and Dinner", 
+            "Laundary",
+            "ATM Facility",
+            "Bar",
+            "Massage/Spa",
+            "Gym",
+            "Conference Room",
+            "Swimming Pool",
+            "Free Parking",
+            "Room Service",
+            "Terrace",
+            "Cafe",
+            "Kitchen",
+            "Outdoor Sports"
+        ],
+        "_id" : ObjectId("5e8b11f945023b1f7010556d"),
+        "availableRooms" : [101,102,104],
+        "noOfPersons" : 5,
+        "discount": 20,
+        "price": 7500,
+        "valid For" : "2 nights",
+        "categoryType" : "Deluxe Family Suite",
+        "bedType" :  "King"
+        
+    }, -->

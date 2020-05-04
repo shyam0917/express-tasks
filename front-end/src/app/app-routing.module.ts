@@ -13,7 +13,7 @@ const routes: Routes = [
   // },
   {
     path: "",
-    loadChildren: "./sidebar/sidebar.module#SidebarModule",
+    loadChildren: "./shared/home/home.module#HomeModule",
     canActivate: [AuthGuard]
   }, {
     path: "login",

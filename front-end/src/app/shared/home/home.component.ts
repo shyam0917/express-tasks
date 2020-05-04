@@ -17,10 +17,13 @@ export class HomeComponent implements OnInit {
   imageURL: string = "";
   addHotelForm: FormGroup;
   Hotels: any = [];
+  ROLE: string = "";
 
   constructor(private afStorage: AngularFireStorage,
     private formBuilder: FormBuilder,
-    private adminService: AdminService) { }
+    private adminService: AdminService) {
+this.ROLE = JSON.parse(localStorage.getItem('userDetails')).role;
+     }
 
   ngOnInit() {
     this.addHotelForm = this.formBuilder.group({
@@ -30,7 +33,7 @@ export class HomeComponent implements OnInit {
       noOfRooms: ['']
     })
 
-    this.getHotels();
+    // this.getHotels();
   }
 
   get f() { return this.addHotelForm.controls; }

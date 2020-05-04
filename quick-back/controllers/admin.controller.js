@@ -26,6 +26,27 @@ module.exports = {
     })
   },
 
+  addRoom: (hotelId, roomDetails)=>{
+return new Promise((resolve,reject) =>{
+Hotel.findById(hotelId).then(doc=>{
+  doc.noOfRooms.push(roomDetails);
+  doc.save().then(data=>{
+    return resolve({
+      success: true,
+      msg: "Room Added Successfully"
+    })
+  })
+
+}).catch(err=>{
+  return reject({
+    success: false,
+    msg: err
+  })
+})
+
+})
+  },
+
   getHotels: () => {
     return new Promise((resolve, reject) => {
       Hotel.find().then(res => {

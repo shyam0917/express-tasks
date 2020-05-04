@@ -6,13 +6,18 @@ const HotelSchema = new Schema({
   address: String,
   city: String,
   rating: Number,
-  price: Number,
-  noOfRooms :[
+  description: String,
+  checkinDetails: [],
+  noOfRooms: [
     {
-      roomNo : Number,
+      availableRooms: [],
       facilities: [],
       noOfPersons: Number,
-      isBooked: Boolean
+      discount: Number,
+      price: Number,
+      validFor: String,
+      categoryType: String,
+      bedType: String
     }
   ],
   image_Url: String
