@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from codingeek.net/html/viaje/destination-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Nov 2019 12:48:16 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Viaje - Travel, Tour Booking HTML5 Template</title>
+    <!-- favicon -->
+    <link rel=icon href="assets/img/favicon.png" sizes="20x20" type="image/png">
+
+    <!-- Additional plugin css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <!-- icons -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/line-awesome.min.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+<body>
+
+    <!-- preloader area start -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="spinner">
+                <div class="dot1"></div>
+                <div class="dot2"></div>
+            </div>
+        </div>
+    </div>
+    <!-- preloader area end -->
+
+    <!-- search popup start -->
+    <div class="body-overlay" id="body-overlay"></div>
+    <div class="search-popup" id="search-popup">
+        <form action="https://codingeek.net/html/viaje/index.html" class="search-form">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search.....">
+            </div>
+            <button type="submit" class="submit-btn"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    <!-- search popup End -->
+
+    <!-- //. sign up Popup -->
+    <div class="signUp-popup login-register-popup" id="signUp-popup">
+        <div class="login-register-popup-wrap">
+            <div class="row no-gutters">
+                <div class="col-lg-6">
+                    <div class="thumb">
+                        <img src="assets/img/others/signup.png" alt="img">
+                    </div>
+                </div>
+                <div class="col-lg-6 align-self-center">
+                    <div class="shape-thumb">
+                        <img src="assets/img/others/signup-shape.png" alt="img">
+                    </div>
+                    <form class="login-form-wrap">
+                        <h4 class="text-center">Sign Up</h4>
+                        <div class="single-input-wrap style-two">
+                            <input type="text" placeholder="Name">
+                            <span class="single-input-title"><i class="fa fa-user"></i></span>
+                        </div>
+                        <div class="single-input-wrap style-two">
+                            <input type="text" placeholder="Email">
+                            <span class="single-input-title"><i class="fa fa-envelope"></i></span>
+                        </div>
+                        <div class="single-input-wrap style-two">
+                            <input type="text" placeholder="Password">
+                            <span class="single-input-title"><i class="fa fa-lock"></i></span>
+                        </div>
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            <span>Remember me</span>
+                        </label>
+                        <div class="single-input-wrap style-two">
+                            <button class="btn btn-yellow w-100">Sign Up</button>
+                        </div>
+                        <div class="sign-in-btn">I already have an account. <a href="#">Sign In</a></div> 
+                        <div class="social-wrap">
+                            <p>Or Continue With</p>
+                            <ul class="social-icon">
+                                <li>
+                                    <a class="facebook" href="https://www.facebook.com/codingeek.net/" target="_blank"><i class="fa fa-facebook  "></i></a>
+                                </li>
+                                <li>
+                                    <a class="twitter" href="https://twitter.com/codingeeknet" target="_blank"><i class="fa fa-twitter  "></i></a>
+                                </li>
+                                <li>
+                                    <a class="pinterest" href="https://www.instagram.com/codingeeknet/" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //. sign up Popup End -->
+
+    <!-- navbar area start -->
+    <nav class="navbar navbar-area navbar-expand-lg nav-style-01">
+        <div class="container nav-container">
+            <div class="responsive-mobile-menu">
+                <div class="mobile-logo">
+                    <a href="index.html">
+                        <img src="assets/img/sticky-logo.png" alt="logo">
+                    </a>
+                </div>
+                <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#tp_main_menu" 
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggle-icon">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </span>
+                </button>
+                <div class="nav-right-content">
+                    <ul class="pl-0">
+                        <li class="top-bar-btn-booking">
+                            <a class="btn btn-yellow" href="tour-details.html">Book Now <i class="fa fa-paper-plane"></i></a>
+                        </li>
+                        <li class="tp-lang">
+                            <div class="tp-lang-wrap">
+                                <select class="select single-select">
+                                  <option value="1">ENG</option>
+                                  <option value="2">BAN</option>
+                                  <option value="3">Chinese</option>
+                                  <option value="3">Spanish</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li class="search">
+                            <i class="ti-search"></i>
+                        </li>
+                        <li class="notification">
+                            <a class="signUp-btn" href="#">
+                                <i class="fa fa-user-o"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="tp_main_menu">
+                <div class="logo-wrapper desktop-logo">
+                    <a href="index.html" class="main-logo">
+                        <img src="assets/img/logo.png" alt="logo">
+                    </a>
+                    <a href="index.html" class="sticky-logo">
+                        <img src="assets/img/sticky-logo.png" alt="logo">
+                    </a>
+                </div>
+                <ul class="navbar-nav">
+                    <li class="menu-item-has-children">
+                        <a href="#">Home</a>
+                        <ul class="sub-menu">
+                            <li><a href="index.html">Home 01</a></li>
+                            <li><a href="home02.html">Home 02</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="about.html">About Us</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Pages</a>
+                        <ul class="sub-menu">
+                            <li><a href="tour-list.html">Tours List</a></li>
+                            <li><a href="tour-details.html">Tours Details</a></li>
+                            <li><a href="destination-list.html">Destination List</a></li>
+                            <li><a href="destination-details.html">Destination Details</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                            <li><a href="comming-soon.html">Coming soon</a></li>
+                            <li><a href="404.html">404</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="user-profile.html">User Profile</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Blog</a>
+                        <ul class="sub-menu">
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="blog-details.html">Blog Details</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-right-content">
+                <ul>
+                    <li>
+                        <a class="btn btn-yellow" href="tour-details.html">Book Now <i class="fa fa-paper-plane"></i></a>
+                    </li>
+                    <li class="tp-lang">
+                        <div class="tp-lang-wrap">
+                            <select class="select single-select">
+                              <option value="1">ENG</option>
+                              <option value="2">BAN</option>
+                              <option value="3">Chinese</option>
+                              <option value="3">Spanish</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="search">
+                        <i class="ti-search"></i>
+                    </li>
+                    <li class="notification">
+                        <a class="signUp-btn" href="#">
+                            <i class="fa fa-user-o"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar area end -->
+
+    <!-- breadcrumb area start -->
+    <div class="breadcrumb-area style-two jarallax" style="background-image:url(assets/img/bg/1.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-inner">
+                        <h1 class="page-title">Destinations List</h1>
+                        <ul class="page-list">
+                            <li><a href="index.html">Home</a></li>
+                            <li>Destinations List</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb area End -->
+
+    <!-- destination area End -->
+    <div class="destination-area">
+        <div class="container-bg mg-top--70">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-destination-grid text-center">
+                            <div class="thumb">
+                                <img src="assets/img/destination-list/8.png" alt="img">
+                            </div>
+                            <div class="details">
+                                <div class="tp-review-meta">
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <span>4.0</span>
+                                </div>
+                                <h3 class="title">Africa</h3>
+                                <p class="content">Africa is the world's second largest and second most- populous continent, being behind Asia in both. At about 30.3 million km² including adjacent islands, it 6% Earth's total surface area and 20% land area.</p>
+                                <a class="btn btn-gray" href="destination-details.html"><span>Explore<i class="la la-arrow-right"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-destination-grid text-center">
+                            <div class="thumb">
+                                <img src="assets/img/destination-list/9.png" alt="img">
+                            </div>
+                            <div class="details">
+                                <div class="tp-review-meta">
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <span>4.0</span>
+                                </div>
+                                <h3 class="title">Thailand</h3>
+                                <p class="content">Thailand is the world's second largest and second most- populous continent, being behind Asia in both. At about 30.3 million km² including adjacent islands, it 6% Earth's total surface area and 20% land area.</p>
+                                <a class="btn btn-gray" href="destination-details.html"><span>Explore<i class="la la-arrow-right"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-destination-grid text-center">
+                            <div class="thumb">
+                                <img src="assets/img/destination-list/10.png" alt="img">
+                            </div>
+                            <div class="details">
+                                <div class="tp-review-meta">
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <span>4.0</span>
+                                </div>
+                                <h3 class="title">Mexico</h3>
+                                <p class="content">Mexico is the world's second largest and second most- populous continent, being behind Asia in both. At about 30.3 million km² including adjacent islands, it 6% Earth's total surface area and 20% land area.</p>
+                                <a class="btn btn-gray" href="destination-details.html"><span>Explore<i class="la la-arrow-right"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-destination-grid text-center">
+                            <div class="thumb">
+                                <img src="assets/img/destination-list/11.png" alt="img">
+                            </div>
+                            <div class="details">
+                                <div class="tp-review-meta">
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <span>4.0</span>
+                                </div>
+                                <h3 class="title">France</h3>
+                                <p class="content">France is the world's second largest and second most- populous continent, being behind Asia in both. At about 30.3 million km² including adjacent islands, it 6% Earth's total surface area and 20% land area.</p>
+                                <a class="btn btn-gray" href="destination-details.html"><span>Explore<i class="la la-arrow-right"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-destination-grid text-center">
+                            <div class="thumb">
+                                <img src="assets/img/destination-list/12.png" alt="img">
+                            </div>
+                            <div class="details">
+                                <div class="tp-review-meta">
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <span>4.0</span>
+                                </div>
+                                <h3 class="title">Italy</h3>
+                                <p class="content">Italy is the world's second largest and second most- populous continent, being behind Asia in both. At about 30.3 million km² including adjacent islands, it 6% Earth's total surface area and 20% land area.</p>
+                                <a class="btn btn-gray" href="destination-details.html"><span>Explore<i class="la la-arrow-right"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-destination-grid text-center">
+                            <div class="thumb">
+                                <img src="assets/img/destination-list/13.png" alt="img">
+                            </div>
+                            <div class="details">
+                                <div class="tp-review-meta">
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <span>4.0</span>
+                                </div>
+                                <h3 class="title">Canada</h3>
+                                <p class="content">Canada is the world's second largest and second most- populous continent, being behind Asia in both categories. At about 30.3 million km² including adjacent islands, it 6% Earth's total surface area and 20% land area.</p>
+                                <a class="btn btn-gray" href="destination-details.html"><span>Explore<i class="la la-arrow-right"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-destination-grid text-center">
+                            <div class="thumb">
+                                <img src="assets/img/destination-list/14.png" alt="img">
+                            </div>
+                            <div class="details">
+                                <div class="tp-review-meta">
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <span>4.0</span>
+                                </div>
+                                <h3 class="title">Singapore</h3>
+                                <p class="content">Singapore is the world's second largest and second most- populous continent, being behind Asia in both. At about 30.3 million km² including adjacent islands, it 6% Earth's total surface area and 20% land area.</p>
+                                <a class="btn btn-gray" href="destination-details.html"><span>Explore<i class="la la-arrow-right"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-destination-grid text-center">
+                            <div class="thumb">
+                                <img src="assets/img/destination-list/15.png" alt="img">
+                            </div>
+                            <div class="details">
+                                <div class="tp-review-meta">
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <span>4.0</span>
+                                </div>
+                                <h3 class="title">Bangladesh</h3>
+                                <p class="content">Bangladesh is the world's second largest and second most- populous continent, being behind Asia in categories. At about 30.3 million km² adjacent islands, it 6% Earth's total surface area and 20% land area.</p>
+                                <a class="btn btn-gray" href="destination-details.html"><span>Explore<i class="la la-arrow-right"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-destination-grid text-center">
+                            <div class="thumb">
+                                <img src="assets/img/destination-list/16.png" alt="img">
+                            </div>
+                            <div class="details">
+                                <div class="tp-review-meta">
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="ic-yellow fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <span>4.0</span>
+                                </div>
+                                <h3 class="title">Dubai</h3>
+                                <p class="content">Dubai is the world's second largest and second most- populous continent, being behind Asia in both. At about 30.3 million km² including adjacent islands, it 6% Earth's total surface area and 20% land area.</p>
+                                <a class="btn btn-gray" href="destination-details.html"><span>Explore<i class="la la-arrow-right"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="btn-wrapper text-center">
+                            <a class="btn btn-yellow mt-4" href="#"><span>Load More<i class="la la-arrow-right"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- destination area End -->
+
+    <!-- newslatter area Start -->
+    <div class="newslatter-area">
+        <div class="container">
+            <div class="newslatter-area-wrap">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-md-5 offset-xl-2">
+                        <div class="section-title mb-md-0">
+                            <h2 class="title">Newsletter</h2>
+                            <p>Sign up to receive the best offers</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-7 align-self-center offset-xl-1">
+                        <div class="input-group newslatter-wrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Email">
+                            <div class="input-group-append">
+                                <button class="btn btn-yellow" type="button">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- newslatter area End -->
+    
+    <!-- footer area start -->
+    <footer class="footer-area" style="background-image: url(assets/img/bg/2.png);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-widget widget">
+                        <div class="about_us_widget">
+                            <a href="index.html" class="footer-logo"> 
+                                <img src="assets/img/logo.png" alt="footer logo">
+                            </a>
+                            <p>We believe brand interaction is key in commu- nication. Real innovations and a positive customer experience are the heart of successful communication.</p>
+                            <ul class="social-icon">
+                                <li>
+                                    <a class="facebook" href="https://www.facebook.com/codingeek.net/" target="_blank"><i class="fa fa-facebook  "></i></a>
+                                </li>
+                                <li>
+                                    <a class="twitter" href="https://twitter.com/codingeeknet" target="_blank"><i class="fa fa-twitter  "></i></a>
+                                </li>
+                                <li>
+                                    <a class="pinterest" href="https://www.instagram.com/codingeeknet/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                </li>
+                            </ul>
+                       </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget widget ">
+                        <div class="widget-contact">
+                            <h4 class="widget-title">Contact us</h4>
+                            <p>
+                                <i class="fa fa-map-marker"></i> 
+                                <span>Manama Tower, Badda Link Road, Badda Dhaka, Bangladesh</span>
+                            </p>
+                            <p class="location"> 
+                                <i class="fa fa-envelope-o"></i>
+                                <span>travelpoint@gmail.com</span>
+                            </p>
+                            <p class="telephone">
+                                <i class="fa fa-phone base-color"></i> 
+                                <span>
+                                    +088 012121240
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget widget">
+                        <h4 class="widget-title">Quick Link</h4>
+                        <ul class="widget_nav_menu">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Destination</a></li>
+                            <li><a href="#">Tours</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget widget">
+                        <h4 class="widget-title">Instagram Gallery</h4>
+                        <ul class="widget-instagram-feed">
+                            <li><a href="#"><img src="assets/img/instagram/1.png" alt="img"></a></li>
+                            <li><a href="#"><img src="assets/img/instagram/2.png" alt="img"></a></li>
+                            <li><a href="#"><img src="assets/img/instagram/3.png" alt="img"></a></li>
+                            <li><a href="#"><img src="assets/img/instagram/4.png" alt="img"></a></li>
+                            <li><a href="#"><img src="assets/img/instagram/5.png" alt="img"></a></li>
+                            <li><a href="#"><img src="assets/img/instagram/6.png" alt="img"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-inner">
+            <div class="copyright-text">
+                &copy; Viaje 2019 All rights reserved. Powered with by <a href="https://codingeek.net/" target="_blank"><i class="fa fa-heart"></i><span>Codingeek.</span></a>
+            </div>
+        </div>
+    </footer>
+    <!-- footer area end -->
+
+    <!-- back to top area start -->
+    <div class="back-to-top">
+        <span class="back-top"><i class="fa fa-angle-up"></i></span>
+    </div>
+    <!-- back to top area end -->
+
+
+    <!-- Additional plugin js -->
+    <script src="assets/js/jquery-2.2.4.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/jarallax.min.js"></script>
+
+    <!-- main js -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+<!-- Mirrored from codingeek.net/html/viaje/destination-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Nov 2019 12:48:17 GMT -->
+</html>

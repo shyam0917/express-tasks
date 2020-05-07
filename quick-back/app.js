@@ -7,10 +7,13 @@ var mongoose = require('mongoose');
 const dotenv = require('dotenv');
 var config = require('./config');
 var cors = require('cors');
+var session = require('express-session');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var adminRouter = require('./routes/admin');
+var paymentRouter = require('./routes/payment');
 
 var app = express();
 
@@ -26,10 +29,12 @@ app.use(express.urlencoded({
 app.use(cors());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({secret: 'mySecret', resave: false, saveUninitialized: false}));
 dotenv.config();
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/admin', adminRouter);
+app.use('/payment',paymentRouter);
 
 // Connecting to the database
 mongoose.connect(config.url, {
