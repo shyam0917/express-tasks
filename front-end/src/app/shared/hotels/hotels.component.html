@@ -1,74 +1,99 @@
-
 <nav aria-label="breadcrumb mt-2">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><button type="button" class="btn btn-primary"  (click)="getUserHotels()">MyBookings</button></li>
-      <li class="breadcrumb-item"><button type="button" class="btn btn-primary" (click)="getAllHotels()">All Hotels</button></li>
-    </ol>
-  </nav>
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item"><button type="button" class="btn btn-primary"
+        (click)="getUserHotels()">MyBookings</button></li>
+    <li class="breadcrumb-item"><button type="button" class="btn btn-primary" (click)="getAllHotels()">All
+        Hotels</button></li>
+  </ul>
+</nav>
 
 
-<div class="mt-5">
-    <div class="row" *ngIf="showBookings">
-    <div class="col-4"  *ngFor="let item of hotelData">
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="https://www.princehotels.com/wp-content/uploads/2019/04/aboutslider2-1.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{item.hotel?.name}}</h5>
-          <h6 class="card-text mb-1">Category Type - {{item.categoryType}}</h6>
-          <p class="card-text mb-1">No of Persons - {{item.hotel?.noOfRooms?.noOfPersons}}</p>
-          <p class="card-text mb-1">Facilities - {{item.hotel?.noOfRooms?.facilities.join(', ')}}</p>
-          <p class="card-text mb-1">RoomNo - {{item.roomNo}}</p>
-          <p class="card-text mb-1">Address - {{item.hotel?.address}},  {{item.hotel?.city}}</p>
-          <p class="card-text mb-1">Booking Date - {{item.createdAt | date}}</p>
-          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+<div *ngIf="showBookings">
+  <!-- offer area start -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4" *ngFor="let item of hotelData">
+        <div class="single-destinations-list text-center">
+          <div class="thumb">
+            <!-- <span class="d-list-tag">Special Offer</span> -->
+            <img src="assets/img/destination-list/1.png" alt="list">
+            <!-- <div class="d-list-btn-wrap">
+                                                      <div class="d-list-btn">
+                                                          <a class="btn btn-yellow" href="#">Book Now <i class="fa fa-paper-plane"></i></a>
+                                                      </div>
+                                                  </div> -->
+          </div>
+          <div class="details">
+            <h4 class="title">{{item.hotel?.name}}</h4>
+            <!-- <p class="content">{{item.categoryType}}</p>
+            <p class="content">No Of Person - {{item.hotel?.noOfRooms?.noOfPersons}}</p> -->
+            <ul class="tp-list-meta border-bt-dot">
+              <li><i class="fa fa-calendar-o"></i> 8oct</li>
+              <li><i class="fa fa-clock-o"></i> {{item.hotel?.noOfRooms?.validFor}}</li>
+              <li><i class="fa fa-star"></i> {{item.hotel?.rating}}</li>
+              <br>
+              <li><i class="fa fa-bed"></i> {{item.categoryType}}</li>
+              <li><i class="fa fa-users"></i> {{item.hotel?.noOfRooms?.noOfPersons}}</li>
+            </ul>
+            <div class="tp-price-meta tp-price-meta-cl">
+              <p>Price</p>
+              <h2>{{(item.hotel?.noOfRooms?.price) - ((item.hotel?.noOfRooms?.discount/100) * item.hotel?.noOfRooms?.price) }}<small><i class="fa fa-inr"></i></small></h2>
+              <del>{{item.hotel?.noOfRooms?.price}}<span><i class="fa fa-inr"></i></span></del>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    </div>
+  </div>
 
-    <div class="container-fluid"  *ngIf="!showBookings">
-    <div class="row">
-      <aside class="col-md-3">
-        <p>Filter 1</p>
-        
-        
-        <div class="card">
-          <article class="card-group-item">
-            <header class="card-header">
-              <h6 class="title">Brands </h6>
-            </header>
-            <div class="filter-content">
-              <div class="card-body">
+
+  <!-- offer area end -->
+</div>
+
+
+<div class="container-fluid" *ngIf="!showBookings">
+  <div class="row">
+    <aside class="col-md-3">
+      <p>Filter 1</p>
+
+
+      <div class="card">
+        <article class="card-group-item">
+          <header class="card-header">
+            <h6 class="title">Brands </h6>
+          </header>
+          <div class="filter-content">
+            <div class="card-body">
               <!-- <form> -->
-                <label class="form-check">
-                  <input class="form-check-input" type="checkbox" value="">
-                  <span class="form-check-label">
-                    Mersedes Benz
-                  </span>
-                </label> <!-- form-check.// -->
-                <label class="form-check">
-                  <input class="form-check-input" type="checkbox" value="">
-                  <span class="form-check-label">
-                    Nissan Altima
-                  </span>
-                </label>  <!-- form-check.// -->
-                <label class="form-check">
-                  <input class="form-check-input" type="checkbox" value="">
-                  <span class="form-check-label">
-                    Another Brand
-                  </span>
-                </label>
-        
-              </div> <!-- card-body.// -->
-            </div>
-          </article> <!-- card-group-item.// -->
-          
-          <article class="card-group-item">
-            <header class="card-header">
-              <h6 class="title">Choose type </h6>
-            </header>
-            <div class="filter-content">
-              <div class="card-body">
+              <label class="form-check">
+                <input class="form-check-input" type="checkbox" value="">
+                <span class="form-check-label">
+                  Mersedes Benz
+                </span>
+              </label> <!-- form-check.// -->
+              <label class="form-check">
+                <input class="form-check-input" type="checkbox" value="">
+                <span class="form-check-label">
+                  Nissan Altima
+                </span>
+              </label> <!-- form-check.// -->
+              <label class="form-check">
+                <input class="form-check-input" type="checkbox" value="">
+                <span class="form-check-label">
+                  Another Brand
+                </span>
+              </label>
+
+            </div> <!-- card-body.// -->
+          </div>
+        </article> <!-- card-group-item.// -->
+
+        <article class="card-group-item">
+          <header class="card-header">
+            <h6 class="title">Choose type </h6>
+          </header>
+          <div class="filter-content">
+            <div class="card-body">
               <label class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadio" value="">
                 <span class="form-check-label">
@@ -87,75 +112,72 @@
                   Some other option
                 </span>
               </label>
-              </div> <!-- card-body.// -->
-            </div>
-          </article> <!-- card-group-item.// -->
-        </div> <!-- card.// -->
-        </aside> <!-- col.// -->
+            </div> <!-- card-body.// -->
+          </div>
+        </article> <!-- card-group-item.// -->
+      </div> <!-- card.// -->
+    </aside> <!-- col.// -->
 
 
-        <div class="col-9" *ngIf="showAll">
-          <div class="jumbotron p-1 mr-5"  *ngFor="let item of hotelData">
-            <div class="row">
-        <div class="col-4">
-            <img class="card-img" src="https://www.princehotels.com/wp-content/uploads/2019/04/aboutslider2-1.jpg" alt="Card image cap">
+    <div class="col-9" *ngIf="showAll">
+      <div class="jumbotron p-1 mr-5" *ngFor="let item of hotelData">
+        <div class="row">
+          <div class="col-4">
+            <img class="card-img" src="https://www.princehotels.com/wp-content/uploads/2019/04/aboutslider2-1.jpg"
+              alt="Card image cap">
           </div>
           <div class="col-8">
-            <div class="card-body pb-0"> 
+            <div class="card-body pb-0">
               <h5 class="card-title">{{item?.name}}</h5>
               <p class="card-text mb-1">{{item?.hotel?.address}}</p>
               <p class="card-text mb-1">Category Type - {{item.noOfRooms[0].categoryType}}</p>
               <p class="card-text mb-1">Facilities - {{item.noOfRooms[0]?.facilities.join(', ')}}</p>
               <p class="card-text mb-1 d-inline">Discount - {{item.noOfRooms[0]?.discount}}%</p>
-              <p class="card-text mb-1 d-inline pl-1">Price - {{item.noOfRooms[0]?.price}}</p><span (click)="showRooms(item)" class="btn btn-primary float-right">Choose Room</span>
+              <p class="card-text mb-1 d-inline pl-1">Price - {{item.noOfRooms[0]?.price}}</p><span
+                (click)="showRooms(item)" class="btn btn-primary float-right">Choose Room</span>
               <p class="card-text mb-1">Rating - {{item?.rating}}/5</p>
             </div>
           </div>
-            </div>
-          </div>
-        <!-- <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://www.princehotels.com/wp-content/uploads/2019/04/aboutslider2-1.jpg" alt="Card image cap">
-            <div class="card-body"> -->
-              <!-- <h5 class="card-title">{{item?.name}}</h5>
-              <p class="card-text mb-1">No of Rooms - {{item.?noOfRooms?.length}}</p>
-              <p class="card-text mb-1">Facilities - {{item.?noOfRooms?.length}}</p>
-              <p class="card-text mb-1">RoomNo - {{item.hotel?.noOfRooms?.roomNo}}</p>
-              <p class="card-text mb-1">Address - {{item.hotel?.address}},  {{item.hotel?.city}}</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a> -->
-            <!-- </div>
-          </div> -->
         </div>
+      </div>
+    </div>
 
-        <!-- Show Rooms of Selected Hotel -->
-        <div class="col-9" *ngIf="!showAll">
-          <h5 class="card-title">{{selectedHotelData?.name}}</h5>
-          <p class="card-text mb-1"><Strong>Address -</Strong> {{selectedHotelData?.address}}</p>
-          <p class="card-text mb-1"><Strong>Description -</Strong> {{selectedHotelData?.description}}</p>
-          <p class="card-text mb-1"><Strong>CheckIn Time -</Strong> {{selectedHotelData?.checkinDetails[0]}}  <Strong>CheckOut Time -</Strong> {{selectedHotelData?.checkinDetails[1]}}</p>
-          <div class="jumbotron p-1 mr-5" *ngFor="let room of RoomArr">
-            <div class="row">
-        <div class="col-4">
-            <img class="card-img" src="https://www.princehotels.com/wp-content/uploads/2019/04/aboutslider2-1.jpg" alt="Card image cap">
-          </div>
-          <div class="col-8">
-            <div class="card-body pb-0"> 
-              <p class="card-text mb-1 d-inline">Category Type - {{room.categoryType}}</p> <p class="card-text mb-1">Valid For - {{room.validFor}}</p>
-              <p class="card-text mb-1">Facilities - {{room?.facilities.join(', ')}}</p>
-              <p class="card-text mb-1 d-inline">Discount - {{room?.discount}}%</p>
-              <p class="card-text mb-1 d-inline pl-1">Price - {{room?.price}}</p><span (click)="sendPayment(selectedHotelData,room)" class="btn btn-primary float-right">Book Now</span>
-              <p class="card-text mb-1">Bed Type - {{room?.bedType}}</p>
-              <p class="card-text mb-1">Available Rooms - {{room?.availableRooms?.length}}</p>
+    <!-- Show Rooms of Selected Hotel -->
+    <div *ngIf="!showAll">
+      <div class="col-9">
+        <h5 class="card-title">{{selectedHotelData?.name}}</h5>
+        <p class="card-text mb-1"><Strong>Address -</Strong> {{selectedHotelData?.address}}</p>
+        <p class="card-text mb-1"><Strong>Description -</Strong> {{selectedHotelData?.description}}</p>
+        <p class="card-text mb-1"><Strong>CheckIn Time -</Strong> {{selectedHotelData?.checkinDetails[0]}}
+          <Strong>CheckOut Time -</Strong> {{selectedHotelData?.checkinDetails[1]}}</p>
+        <div class="jumbotron p-1 mr-5" *ngFor="let room of RoomArr">
+          <div class="row">
+            <div class="col-4">
+              <img class="card-img" src="https://www.princehotels.com/wp-content/uploads/2019/04/aboutslider2-1.jpg"
+                alt="Card image cap">
             </div>
-          </div>
+            <div class="col-8">
+              <div class="card-body pb-0">
+                <p class="card-text mb-1 d-inline">Category Type - {{room.categoryType}}</p>
+                <p class="card-text mb-1">Valid For - {{room.validFor}}</p>
+                <p class="card-text mb-1">Facilities - {{room?.facilities.join(', ')}}</p>
+                <p class="card-text mb-1 d-inline">Discount - {{room?.discount}}%</p>
+                <p class="card-text mb-1 d-inline pl-1">Price - {{room?.price}}</p><span
+                  (click)="sendPayment(selectedHotelData,room)" class="btn btn-primary float-right">Book Now</span>
+                <p class="card-text mb-1">Bed Type - {{room?.bedType}}</p>
+                <p class="card-text mb-1">Available Rooms - {{room?.availableRooms?.length}}</p>
+              </div>
             </div>
           </div>
         </div>
-        </div>
-</div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 
-<!-- <button (click)="sendPayment()" class="btn btn-primary">Pay Baby</button> -->
+
 
 
 

@@ -24,12 +24,35 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/styles/css/bootstrap.min.css"
+              "src/styles/css/bootstrap.min.css",
+              "src/styles/css/animate.css",
+              "src/styles/css/magnific-popup.css",
+              "src/styles/css/owl.carousel.min.css",
+              "src/styles/css/slick.css",
+              "src/styles/css/swiper.min.css",
+              "src/styles/css/nice-select.css",
+              "src/styles/css/jquery-ui.min.css",
+              "src/styles/css/font-awesome.min.css",
+              "src/styles/css/themify-icons.css",
+              "src/styles/css/line-awesome.min.css",
+              "src/styles/css/style.css",
+              "src/styles/css/responsive.css"
             ],
             "scripts": [
-              "src/styles/js/jquery.min.js",
+              "src/styles/js/jquery-2.2.4.min.js",
               "src/styles/js/popper.js",
-              "src/styles/js/bootstrap.min.js"
+              "src/styles/js/bootstrap.min.js",
+              "src/styles/js/jquery.magnific-popup.js",
+              "src/styles/js/owl.carousel.min.js",
+              "src/styles/js/wow.min.js",
+              "src/styles/js/slick.js",
+              "src/styles/js/waypoints.min.js",
+              "src/styles/js/jquery.counterup.min.js",
+              "src/styles/js/imagesloaded.pkgd.min.js",
+              "src/styles/js/isotope.pkgd.min.js",
+              "src/styles/js/swiper.min.js",
+              "src/styles/js/jquery.nice-select.min.js",
+              "src/styles/js/jquery-ui.min.js"
             ],
             "es5BrowserSupport": true
           },

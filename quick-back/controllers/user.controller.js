@@ -259,7 +259,7 @@ module.exports = {
   },
   userFeedback: (feedback) => {
     return new Promise((resolve, reject) => {
-      console.log("Yyyyyyyy", feedback);
+      console.log("Yyyyyyyy", feedback, new Date());
       Hotel.update(
         { _id: hotelId },
         {
@@ -269,15 +269,27 @@ module.exports = {
               "title": feedback.title,
               "comment": feedback.comment,
               "userRating": feedback.userRating,
-              "date": new Date()
+              "date": new Date().toISOString()
             }
           }
-        }).then(data=>{
-          return resolve({
-            success: true,
-            msg: "Comment Added Successfully",
-          })
+        },(err,data)=>{
+
+          if(err){
+            return reject({
+              success: false,
+              msg: err
+            })
+          }
+
+          if(data){
+            return resolve({
+              success: true,
+              msg: "Comment Added Successfully",
+            })
+          }
+
         }).catch(err=>{
+          console.log("Ttt",err);
           return reject({
             success: false,
             msg: err

@@ -1,7 +1,7 @@
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
-@font-face {
+/* @font-face {
   font-family: Poppins-Regular;
   src: url('../../fonts/poppins/Poppins-Regular.ttf');
 }
@@ -19,7 +19,7 @@
 @font-face {
   font-family: Montserrat-Bold;
   src: url('../../fonts/montserrat/Montserrat-Bold.ttf');
-}
+} */
 
 /*//////////////////////////////////////////////////////////////////
   [ RESTYLE TAG ]*/
