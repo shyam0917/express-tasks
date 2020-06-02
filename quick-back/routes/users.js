@@ -68,7 +68,7 @@ userController.getMyHotels(userId).then(resp=>{
   }
 })
 
-// get Hotels based on query Facilities
+// get Hotels based on  Facilities
 router.get('/getHotelsbyFilter',(req,res)=>{
   try{
 userController.getFilteredHotels(req).then(resp=>{
@@ -83,6 +83,41 @@ userController.getFilteredHotels(req).then(resp=>{
     })
   }
 })
+
+// get Hotels based on rating
+router.get('/getHotelsbyRating',(req,res)=>{
+  try{
+userController.getratingFilteredHotels(req).then(resp=>{
+  return res.status(200).send(resp);
+},err=>{
+  return res.status(400).send(err);
+})
+  }catch(error){
+    return res.status(500).send({
+      success: false,
+      msg: "Internal Error Occured"
+    })
+  }
+})
+
+// get Hotels based on bedType
+router.get('/getHotelsbybedType',(req,res)=>{
+  try{
+userController.getBedTypeFilteredHotels(req).then(resp=>{
+  return res.status(200).send(resp);
+},err=>{
+  return res.status(400).send(err);
+})
+  }catch(error){
+    return res.status(500).send({
+      success: false,
+      msg: "Internal Error Occured"
+    })
+  }
+})
+
+
+
 
 // get All Hotels 
 router.get('/allHotels',(req,res)=>{

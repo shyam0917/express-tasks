@@ -20,12 +20,13 @@ const HotelSchema = new Schema({
       bedType: String
     }
   ],
-  comments: [{
-    userName: String,
-    title: String,
-    comment: String,
-    userRating: Number
-  }],
+  comments: [],
+  // comments: [{
+  //   userName: String,
+  //   title: String,
+  //   comment: String,
+  //   userRating: Number
+  // }],
   image_Url: String
 })
 

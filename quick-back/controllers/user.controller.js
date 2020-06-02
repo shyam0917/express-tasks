@@ -221,12 +221,11 @@ module.exports = {
   // get filtered hotels by facilities
   getFilteredHotels: (request) => {
     return new Promise((resolve, reject) => {
-      let Faciliti = request.query.facilities;
+      let Faciliti = request.query.facilities.split(",");
       Hotel.aggregate([{ $unwind: "$noOfRooms" },
       {
         $match: {
-          "$and": [{ "noOfRooms.isBooked": false },
-          { "noOfRooms.facilities": { $all: JSON.parse(Faciliti) } }]
+          "noOfRooms.facilities": { $all: Faciliti }
         }
       },
       {
@@ -257,39 +256,78 @@ module.exports = {
     })
 
   },
+  // get filtered hotels by rating
+  getratingFilteredHotels: (request) => {
+    return new Promise((resolve, reject) => {
+      let queryValue = +request.query.rating;
+      let querydecValue = queryValue - 1;
+      Hotel.find({ rating: { $gte: querydecValue , $lte: queryValue } }).then(data => {
+        resolve({
+          success: true,
+          msg: "Data get Successfully",
+          data: data
+        })
+      }, err => {
+        reject({
+          success: false,
+          msg: err
+        })
+      })
+    })
+},
+
+  // get filtered hotels by bedType
+  getBedTypeFilteredHotels: (request) => {
+    return new Promise((resolve, reject) => {
+      let queryValue = request.query.bedType;
+      Hotel.find({"noOfRooms":  { $elemMatch: { "bedType" : queryValue } }}).then(data => {
+        resolve({
+          success: true,
+          msg: "Data get Successfully",
+          data: data
+        })
+      }, err => {
+        reject({
+          success: false,
+          msg: err
+        })
+      })
+    })
+},
   userFeedback: (feedback) => {
     return new Promise((resolve, reject) => {
-      console.log("Yyyyyyyy", feedback, new Date());
-      Hotel.update(
-        { _id: hotelId },
+
+      let hId = mongoose.Types.ObjectId(feedback.hotelId);
+      Hotel.updateOne(
+        { _id: hId },
         {
-          $push: {
+          $addToSet: {
             comments: {
               "userName": feedback.userName,
               "title": feedback.title,
               "comment": feedback.comment,
               "userRating": feedback.userRating,
-              "date": new Date().toISOString()
+              "date": new Date()
             }
           }
-        },(err,data)=>{
+        }, (err, data) => {
 
-          if(err){
+          if (err) {
             return reject({
               success: false,
               msg: err
             })
           }
 
-          if(data){
+          if (data) {
             return resolve({
               success: true,
               msg: "Comment Added Successfully",
             })
           }
 
-        }).catch(err=>{
-          console.log("Ttt",err);
+        }).catch(err => {
+          console.log("Ttt", err);
           return reject({
             success: false,
             msg: err

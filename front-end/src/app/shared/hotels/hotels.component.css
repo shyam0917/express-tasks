@@ -1,3 +1,8 @@
 .breadcrumb{
     background-color: white !important;
 }
+
+.filter-content{
+    height: 236px;
+    overflow-y: scroll;
+}

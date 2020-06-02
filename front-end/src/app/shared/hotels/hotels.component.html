@@ -18,15 +18,13 @@
             <!-- <span class="d-list-tag">Special Offer</span> -->
             <img src="assets/img/destination-list/1.png" alt="list">
             <!-- <div class="d-list-btn-wrap">
-                                                      <div class="d-list-btn">
+            <div class="d-list-btn">
                                                           <a class="btn btn-yellow" href="#">Book Now <i class="fa fa-paper-plane"></i></a>
                                                       </div>
                                                   </div> -->
           </div>
           <div class="details">
             <h4 class="title">{{item.hotel?.name}}</h4>
-            <!-- <p class="content">{{item.categoryType}}</p>
-            <p class="content">No Of Person - {{item.hotel?.noOfRooms?.noOfPersons}}</p> -->
             <ul class="tp-list-meta border-bt-dot">
               <li><i class="fa fa-calendar-o"></i> 8oct</li>
               <li><i class="fa fa-clock-o"></i> {{item.hotel?.noOfRooms?.validFor}}</li>
@@ -37,7 +35,9 @@
             </ul>
             <div class="tp-price-meta tp-price-meta-cl">
               <p>Price</p>
-              <h2>{{(item.hotel?.noOfRooms?.price) - ((item.hotel?.noOfRooms?.discount/100) * item.hotel?.noOfRooms?.price) }}<small><i class="fa fa-inr"></i></small></h2>
+              <h2>
+                {{(item.hotel?.noOfRooms?.price) - ((item.hotel?.noOfRooms?.discount/100) * item.hotel?.noOfRooms?.price) }}<small><i
+                    class="fa fa-inr"></i></small></h2>
               <del>{{item.hotel?.noOfRooms?.price}}<span><i class="fa fa-inr"></i></span></del>
             </div>
           </div>
@@ -54,88 +54,74 @@
 <div class="container-fluid" *ngIf="!showBookings">
   <div class="row">
     <aside class="col-md-3">
-      <p>Filter 1</p>
-
-
       <div class="card">
         <article class="card-group-item">
           <header class="card-header">
-            <h6 class="title">Brands </h6>
+            <h6 class="title">Facilities</h6>
           </header>
           <div class="filter-content">
             <div class="card-body">
-              <!-- <form> -->
-              <label class="form-check">
-                <input class="form-check-input" type="checkbox" value="">
+              <label class="form-check" *ngFor="let facility of facilities">
+                <input class="form-check-input" type="checkbox" (change)="applyFilter($event,facility)">
                 <span class="form-check-label">
-                  Mersedes Benz
-                </span>
-              </label> <!-- form-check.// -->
-              <label class="form-check">
-                <input class="form-check-input" type="checkbox" value="">
-                <span class="form-check-label">
-                  Nissan Altima
-                </span>
-              </label> <!-- form-check.// -->
-              <label class="form-check">
-                <input class="form-check-input" type="checkbox" value="">
-                <span class="form-check-label">
-                  Another Brand
+                 {{facility}}
                 </span>
               </label>
-
-            </div> <!-- card-body.// -->
+            </div> 
           </div>
         </article> <!-- card-group-item.// -->
 
         <article class="card-group-item">
           <header class="card-header">
-            <h6 class="title">Choose type </h6>
+            <h6 class="title">Room Type</h6>
           </header>
-          <div class="filter-content">
+          <div class="filter-content2">
             <div class="card-body">
-              <label class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+              <label class="form-check" *ngFor="let roomType of roomTypes">
+                <input class="form-check-input" type="radio" name="roomType" (change)="applyBedTypeFilter($event,rating)">
                 <span class="form-check-label">
-                  First hand items
-                </span>
-              </label>
-              <label class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                <span class="form-check-label">
-                  Brand new items
-                </span>
-              </label>
-              <label class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                <span class="form-check-label">
-                  Some other option
+                  {{roomType}}
                 </span>
               </label>
             </div> <!-- card-body.// -->
           </div>
-        </article> <!-- card-group-item.// -->
+        </article> 
+
+        <article class="card-group-item">
+          <header class="card-header">
+            <h6 class="title">Room Rating</h6>
+          </header>
+          <div class="filter-content2">
+            <div class="card-body">
+              <label class="form-check" *ngFor="let rating of ratings">
+                <input class="form-check-input" type="radio" name="rating" (change)="applyRatingFilter($event,rating)">
+                <span class="form-check-label">
+                 Upto {{rating}} Star
+                </span>
+              </label>
+            </div> <!-- card-body.// -->
+          </div>
+        </article> 
       </div> <!-- card.// -->
     </aside> <!-- col.// -->
 
 
     <div class="col-9" *ngIf="showAll">
+      <div *ngIf="hotelData.length==0"><h3 class="text-center">No Data Available</h3></div>
       <div class="jumbotron p-1 mr-5" *ngFor="let item of hotelData">
         <div class="row">
           <div class="col-4">
-            <img class="card-img" src="https://www.princehotels.com/wp-content/uploads/2019/04/aboutslider2-1.jpg"
-              alt="Card image cap">
+            <img src="assets/img/destination-list/2.png" alt="list">
           </div>
           <div class="col-8">
             <div class="card-body pb-0">
               <h5 class="card-title">{{item?.name}}</h5>
               <p class="card-text mb-1">{{item?.hotel?.address}}</p>
-              <p class="card-text mb-1">Category Type - {{item.noOfRooms[0].categoryType}}</p>
-              <p class="card-text mb-1">Facilities - {{item.noOfRooms[0]?.facilities.join(', ')}}</p>
+              <p class="card-text mb-1">Room Type - {{item.noOfRooms[0].categoryType}}<span class="float-lg-right"><i class="fa fa-tripadvisor" style="font-size:.929em;color: #00a680;"></i>  {{item?.rating}}/5</span></p>
+              <p class="card-text mb-1 w-75">Facilities - {{item.noOfRooms[0]?.facilities.join(', ')}}</p>
               <p class="card-text mb-1 d-inline">Discount - {{item.noOfRooms[0]?.discount}}%</p>
               <p class="card-text mb-1 d-inline pl-1">Price - {{item.noOfRooms[0]?.price}}</p><span
                 (click)="showRooms(item)" class="btn btn-primary float-right">Choose Room</span>
-              <p class="card-text mb-1">Rating - {{item?.rating}}/5</p>
             </div>
           </div>
         </div>

@@ -15,4 +15,18 @@ export class UserService {
   getAllHotels() {
     return this.http.get(this.baseUrl + 'allHotels');
   }
+
+  getFilteredHotels(Facilities) {
+    return this.http.get(this.baseUrl + "getHotelsbyFilter?facilities=" + Facilities)
+  }
+
+  getHotelsByRating(rating){
+    return this.http.get(this.baseUrl + "getHotelsbyRating?rating=" + rating)
+  }
+
+  getHotelsByBedType(bedType){
+    return this.http.get(this.baseUrl + "getHotelsbybedType?bedType=" + bedType)
+  }
+
+
 }
